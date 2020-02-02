@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 
 export default class TodoInput extends Component {
-  /* constructor(props) {
+  constructor(props) {
     super(props);
     this.inputRef = React.createRef();
-  }*/
-  /* componentDidMount() {
+  }
+  componentDidMount() {
     this.inputRef.current.focus();
-  }*/
+  }
   render() {
     const { item, handlChange, handleSubmit, editItem } = this.props;
     return (
@@ -25,7 +25,7 @@ export default class TodoInput extends Component {
               placeholder="Add todo item"
               value={item}
               onChange={handlChange}
-              //ref={this.inputRef}
+              ref={this.inputRef}
             />
           </div>
           <button
