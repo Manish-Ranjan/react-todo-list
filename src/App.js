@@ -30,9 +30,27 @@ export default class App extends Component {
     })
 
   }
-  clearList = () => { }
-  handleDelete = (id) => { }
-  handleEdit = () => { }
+  clearList = () => {
+    this.setState({
+      items: []
+    })
+  }
+  handleDelete = (id) => {
+    const filteredItems = this.state.items.filter(item => item.id !== id);
+    this.setState({
+      items: filteredItems
+    })
+  }
+  handleEdit = (id) => {
+    const filteredItems = this.state.items.filter(item => item.id !== id);
+    const selectedItems = this.state.items.find(item => item.id === id);
+    this.setState({
+      items: filteredItems,
+      item: selectedItems.title,
+      id: id,
+      editItem: true
+    })
+  }
   render() {
     return (
       <div className="container">
@@ -43,7 +61,7 @@ export default class App extends Component {
               item={this.state.item}
               handleChange={this.handleChange}
               handleSubmit={this.handleSubmit}
-              editItem={this.editItem}
+              editItem={this.state.editItem}
             />
             <List
               items={this.state.items}
