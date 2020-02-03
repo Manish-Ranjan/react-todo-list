@@ -1,15 +1,8 @@
 import React, { Component } from "react";
 
 export default class TodoInput extends Component {
-  constructor(props) {
-    super(props);
-    this.inputRef = React.createRef();
-  }
-  componentDidMount() {
-    this.inputRef.current.focus();
-  }
   render() {
-    const { item, handlChange, handleSubmit, editItem } = this.props;
+    const { item, handleChange, handleSubmit, editItem } = this.props;
     return (
       <div className="card card-body my-3">
         <form onSubmit={handleSubmit}>
@@ -22,17 +15,16 @@ export default class TodoInput extends Component {
             <input
               type="text"
               className="form-control text-capitalize"
-              placeholder="Add todo item"
+              placeholder="add todo item"
               value={item}
-              onChange={handlChange}
-              ref={this.inputRef}
+              onChange={handleChange}
             />
           </div>
           <button
             type="submit"
             className="btn btn-block btn-primary mt-3 text-uppercase"
           >
-            Add Item
+            add item
           </button>
         </form>
       </div>
